@@ -53,10 +53,12 @@ static CGFloat kLabelMergin = 10;
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
-	if (self.shape.strokeColor == nil) {
-		self.shape.strokeColor = backgroundColor.CGColor;
-	}
 	[self.shape setFillColor:backgroundColor.CGColor];
+}
+
+- (UIColor *)backgroundColor
+{
+	return [UIColor colorWithCGColor:self.shape.fillColor];
 }
 
 - (void)setRiftRightEdge:(BOOL)riftRightEdge
