@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	M2DRibbonView *ribbon = [[M2DRibbonView alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+	M2DRibbonView *ribbon = [[M2DRibbonView alloc] initWithFrame:CGRectMake(10, 20, 100, 30)];
 	ribbon.clipsToBounds = NO;
 	ribbon.backgroundColor = [UIColor blueColor];
 	ribbon.borderColor = [UIColor grayColor];
@@ -28,10 +28,9 @@
 	ribbon.roundCorner = YES;
 	ribbon.riftRightEdge = YES;
 	ribbon.riftLeftEdge = NO;
-	ribbon.textLabel.text = @"text";
-	ribbon.center = self.view.center;
+	ribbon.textLabel.text = @"text1";
 	
-	M2DRibbonView *ribbon2 = [[M2DRibbonView alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+	M2DRibbonView *ribbon2 = [[M2DRibbonView alloc] initWithFrame:CGRectMake(10, 60, 100, 30)];
 	ribbon2.clipsToBounds = NO;
 	ribbon2.backgroundColor = [UIColor greenColor];
 	ribbon2.borderColor = [UIColor grayColor];
@@ -40,10 +39,9 @@
 	ribbon2.roundCorner = YES;
 	ribbon2.riftRightEdge = YES;
 	ribbon2.riftLeftEdge = YES;
-	ribbon2.textLabel.text = @"text";
-	ribbon2.center = CGPointMake(self.view.center.x, self.view.center.y + 50);
+	ribbon2.textLabel.text = @"text2";
 	
-	M2DRibbonView *ribbon3 = [[M2DRibbonView alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+	M2DRibbonView *ribbon3 = [[M2DRibbonView alloc] initWithFrame:CGRectMake(10, 100, 100, 30)];
 	ribbon3.clipsToBounds = NO;
 	ribbon3.backgroundColor = [UIColor orangeColor];
 	ribbon3.borderColor = [UIColor grayColor];
@@ -52,10 +50,9 @@
 	ribbon3.roundCorner = YES;
 	ribbon3.riftRightEdge = NO;
 	ribbon3.riftLeftEdge = YES;
-	ribbon3.textLabel.text = @"text";
-	ribbon3.center = CGPointMake(self.view.center.x, self.view.center.y + 100);
+	ribbon3.textLabel.text = @"text3";
 	
-	M2DRibbonView *ribbon4 = [[M2DRibbonView alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+	M2DRibbonView *ribbon4 = [[M2DRibbonView alloc] initWithFrame:CGRectMake(10, 140, 100, 30)];
 	ribbon4.clipsToBounds = NO;
 	ribbon4.backgroundColor = [UIColor purpleColor];
 	ribbon4.borderColor = [UIColor grayColor];
@@ -65,7 +62,6 @@
 	ribbon4.riftRightEdge = YES;
 	ribbon4.riftLeftEdge = YES;
 	ribbon4.textLabel.text = @"long long long long long text";
-	ribbon4.center = CGPointMake(self.view.center.x, self.view.center.y + 150);
 	[ribbon4 sizeToFit];
 	
 	[self.view addSubview:ribbon];

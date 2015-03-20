@@ -25,7 +25,7 @@ static CGFloat kLabelMergin = 10;
 		self.opaque = NO;
 		self.backgroundColor = [UIColor clearColor];
 		self.shape = [CAShapeLayer layer];
-		[self.shape setFrame:frame];
+		[self.shape setFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
 		[self.layer addSublayer:self.shape];
 		_textLabel = [[UILabel alloc] initWithFrame:frame];
 		_textLabel.center = self.center;
@@ -33,6 +33,22 @@ static CGFloat kLabelMergin = 10;
 	}
 	
 	return self;
+}
+
+- (void)setFrame:(CGRect)frame
+{
+	[super setFrame:frame];
+	[self.shape setFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
+	[self setNeedsDisplay];
+	[self updateLabelPosition];
+}
+
+- (void)setBounds:(CGRect)bounds
+{
+	[super setBounds:bounds];
+	[self.shape setBounds:bounds];
+	[self setNeedsDisplay];
+	[self updateLabelPosition];
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor
@@ -97,25 +113,25 @@ static CGFloat kLabelMergin = 10;
 	p.x = self.riftLength;
 	p.y = 0;
 	[path moveToPoint:p];
-	p.x = CGRectGetWidth(self.frame) - self.riftLength;
+	p.x = CGRectGetWidth(self.bounds) - self.riftLength;
 	[path addLineToPoint:p];
 	if (self.riftRightEdge) {
 		p.x += self.riftLength;
 		[path addLineToPoint:p];
 		
 		p.x -= self.riftLength;
-		p.y += CGRectGetHeight(self.frame) / 2.0;
+		p.y += CGRectGetHeight(self.bounds) / 2.0;
 		[path addLineToPoint:p];
 		
 		p.x += self.riftLength;
-		p.y += CGRectGetHeight(self.frame) / 2.0;
+		p.y += CGRectGetHeight(self.bounds) / 2.0;
 		[path addLineToPoint:p];
 	}
 	else {
 		p.x += self.riftLength;
 		[path addLineToPoint:p];
 		
-		p.y += CGRectGetHeight(self.frame);
+		p.y += CGRectGetHeight(self.bounds);
 		[path addLineToPoint:p];
 		
 		p.x -= self.riftLength;
@@ -123,25 +139,25 @@ static CGFloat kLabelMergin = 10;
 	}
 	
 	p.x = self.riftLength;
-	p.y = CGRectGetHeight(self.frame);
+	p.y = CGRectGetHeight(self.bounds);
 	[path addLineToPoint:p];
 	if (self.riftLeftEdge) {
 		p.x = 0;
 		[path addLineToPoint:p];
 		
 		p.x += self.riftLength;
-		p.y -= CGRectGetHeight(self.frame) / 2.0;
+		p.y -= CGRectGetHeight(self.bounds) / 2.0;
 		[path addLineToPoint:p];
 		
 		p.x = 0;
-		p.y -= CGRectGetHeight(self.frame) / 2.0;
+		p.y -= CGRectGetHeight(self.bounds) / 2.0;
 		[path addLineToPoint:p];
 	}
 	else {
 		p.x = 0;
 		[path addLineToPoint:p];
 		
-		p.y -= CGRectGetHeight(self.frame);
+		p.y -= CGRectGetHeight(self.bounds);
 		[path addLineToPoint:p];
 		
 		p.x = self.riftLength;
@@ -155,7 +171,7 @@ static CGFloat kLabelMergin = 10;
 - (void)sizeToFit
 {
 	[self.textLabel sizeToFit];
-	self.bounds = CGRectMake(0, 0, CGRectGetWidth(self.textLabel.frame) + (self.riftLeftEdge * 2) + (kLabelMergin * 3), CGRectGetHeight(self.frame));
+	self.frame = CGRectMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetWidth(self.textLabel.bounds) + (self.riftLeftEdge * 2) + (kLabelMergin * 3), CGRectGetHeight(self.bounds));
 	[self updateLabelPosition];
 }
 
@@ -165,7 +181,7 @@ static CGFloat kLabelMergin = 10;
 {
 	_textLabel.center = self.center;
 	CGFloat x = kLabelMergin;
-	CGFloat width = CGRectGetWidth(self.frame) - self.riftLength * 2;
+	CGFloat width = CGRectGetWidth(self.bounds) - self.riftLength * 2;
 	if (self.riftRightEdge) {
 		width -= x;
 	}
@@ -173,7 +189,7 @@ static CGFloat kLabelMergin = 10;
 		x += x / 2.0;
 	}
 	
-	_textLabel.frame = CGRectMake(x, 0, width, CGRectGetHeight(self.frame));
+	_textLabel.frame = CGRectMake(x, 0, width, CGRectGetHeight(self.bounds));
 }
 
 @end
