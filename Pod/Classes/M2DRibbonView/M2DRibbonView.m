@@ -22,8 +22,8 @@ static CGFloat kLabelMergin = 10;
 {
 	self = [super initWithFrame:frame];
 	if (self) {
-		self.opaque = NO;
-		self.backgroundColor = [UIColor clearColor];
+//		self.opaque = NO;
+		self.backgroundColor = [UIColor redColor];
 		self.shape = [CAShapeLayer layer];
 		[self.shape setFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
 		[self.layer addSublayer:self.shape];
@@ -46,7 +46,7 @@ static CGFloat kLabelMergin = 10;
 - (void)setBounds:(CGRect)bounds
 {
 	[super setBounds:bounds];
-	[self.shape setBounds:bounds];
+	[self.shape setFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
 	[self setNeedsDisplay];
 	[self updateLabelPosition];
 }
