@@ -16,6 +16,8 @@
 
 @implementation M2DRibbonView
 
+static CGFloat kLabelMergin = 10;
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
 	self = [super initWithFrame:frame];
@@ -44,20 +46,21 @@
 - (void)setRiftRightEdge:(BOOL)riftRightEdge
 {
 	_riftRightEdge = riftRightEdge;
+	[self updateLabelPosition];
 	[self setNeedsDisplay];
 }
 
 - (void)setRiftLeftEdge:(BOOL)riftLeftEdge
 {
 	_riftLeftEdge = riftLeftEdge;
+	[self updateLabelPosition];
 	[self setNeedsDisplay];
 }
 
 - (void)setRiftLength:(CGFloat)riftLength
 {
 	_riftLength = riftLength;
-	_textLabel.frame = CGRectMake(riftLength, 0, CGRectGetWidth(self.frame) - riftLength * 2, CGRectGetHeight(self.frame));
-	_textLabel.center = self.center;
+	[self updateLabelPosition];
 	[self setNeedsDisplay];
 }
 
@@ -147,6 +150,30 @@
 	
 	[path closePath];
 	self.shape.path = path.CGPath;
+}
+
+- (void)sizeToFit
+{
+	[self.textLabel sizeToFit];
+	self.bounds = CGRectMake(0, 0, CGRectGetWidth(self.textLabel.frame) + (self.riftLeftEdge * 2) + (kLabelMergin * 3), CGRectGetHeight(self.frame));
+	[self updateLabelPosition];
+}
+
+#pragma mark - 
+
+- (void)updateLabelPosition
+{
+	_textLabel.center = self.center;
+	CGFloat x = kLabelMergin;
+	CGFloat width = CGRectGetWidth(self.frame) - self.riftLength * 2;
+	if (self.riftRightEdge) {
+		width -= x;
+	}
+	if (self.riftLeftEdge) {
+		x += x / 2.0;
+	}
+	
+	_textLabel.frame = CGRectMake(x, 0, width, CGRectGetHeight(self.frame));
 }
 
 @end

@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/M2DRibbonView.svg?style=flat)](http://cocoadocs.org/docsets/M2DRibbonView)
 [![Platform](https://img.shields.io/cocoapods/p/M2DRibbonView.svg?style=flat)](http://cocoadocs.org/docsets/M2DRibbonView)
 
+![](https://raw.github.com/0x0c/M2DRibbonView/master/images/1.png)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

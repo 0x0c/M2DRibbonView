@@ -16,7 +16,7 @@ A ribbon shape view.
 You can rift left and right edge.
                        DESC
   s.homepage         = "https://github.com/0x0c/M2DRibbonView"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.screenshots     = "https://raw.github.com/0x0c/M2DRibbonView/master/images/1.png"
   s.license          = 'MIT'
   s.author           = { "Akira Matsuda" => "akira.matsuda@me.com" }
   s.source           = { :git => "https://github.com/0x0c/M2DRibbonView.git", :tag => s.version.to_s }
