@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'M2DRibbonView', :exclusive => true do
+  pod "M2DRibbonView", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "M2DRibbonView", :path => "../"
+
+  
+end
