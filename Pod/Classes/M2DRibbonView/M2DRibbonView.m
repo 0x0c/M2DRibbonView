@@ -22,8 +22,8 @@ static CGFloat kLabelMergin = 10;
 {
 	self = [super initWithFrame:frame];
 	if (self) {
-//		self.opaque = NO;
-		self.backgroundColor = [UIColor redColor];
+		self.opaque = NO;
+		self.backgroundColor = [UIColor clearColor];
 		self.shape = [CAShapeLayer layer];
 		[self.shape setFrame:CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))];
 		[self.layer addSublayer:self.shape];
