@@ -7,6 +7,7 @@
 //
 
 #import "M2DViewController.h"
+#import "M2DRibbonView.h"
 
 @interface M2DViewController ()
 
@@ -18,6 +19,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	M2DRibbonView *ribbon = [[M2DRibbonView alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+	ribbon.clipsToBounds = NO;
+	ribbon.backgroundColor = [UIColor blueColor];
+	ribbon.borderColor = [UIColor grayColor];
+	ribbon.borderWidth = 1.0;
+	ribbon.riftLength = 10;
+	ribbon.roundCorner = YES;
+	ribbon.riftRightEdge = YES;
+	ribbon.riftLeftEdge = NO;
+	ribbon.textLabel.text = @"text";
+	
+	ribbon.center = self.view.center;
+	[self.view addSubview:ribbon];
 }
 
 - (void)didReceiveMemoryWarning
