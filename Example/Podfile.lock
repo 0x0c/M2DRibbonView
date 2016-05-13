@@ -1,0 +1,14 @@
+PODS:
+  - M2DRibbonView (0.1.0)
+
+DEPENDENCIES:
+  - M2DRibbonView (from `../`)
+
+EXTERNAL SOURCES:
+  M2DRibbonView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  M2DRibbonView: 8263f6c8f1827e02df83101a4876767f40ae6a22
+
+COCOAPODS: 0.36.0

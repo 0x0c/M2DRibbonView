@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "M2DRibbonView"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "A ribbon shape view."
   s.description      = <<-DESC
 A ribbon shape view.
