@@ -13,3 +13,5 @@ install:
 script:
 - set -o pipefail && xcodebuild test -workspace Example/M2DRibbonView.xcworkspace -scheme M2DRibbonView-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
 - pod lib lint --quick
+
+# Added comment - 
